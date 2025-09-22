@@ -1,3 +1,14 @@
+Claro! O código HTML que eu forneci já inclui o JavaScript necessário para o carrinho de compras. No entanto, vou explicar detalhadamente como o JavaScript está integrado no site e detalhar o funcionamento do código.
+
+### O que o JavaScript faz:
+
+1. **Adicionar ao Carrinho**: Quando o usuário clica no botão "Adicionar ao Carrinho" de um produto, o JavaScript adiciona esse item (nome e preço) ao carrinho de compras.
+2. **Atualização do Carrinho**: O carrinho é atualizado automaticamente para mostrar a quantidade de itens e o valor total da compra.
+3. **Finalizar Compra**: Quando o usuário clica no botão "Finalizar Compra", o carrinho é "limpo", e uma mensagem de sucesso é exibida.
+
+### **Aqui está a versão completa com o código JavaScript já integrado:**
+
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,11 +18,18 @@
     <title>Bebida Já - Maringá</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset de margens e preenchimentos padrão */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
 
         header {
@@ -27,68 +45,109 @@
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
         }
 
         .cardapio {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
-        .categoria {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .categoria h3 {
-            text-align: center;
-            color: #f26b38;
-        }
-
         .produto {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .produto span {
+        .produto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .produto h3 {
+            background-color: #f26b38;
+            color: white;
+            padding: 10px 0;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .produto p {
+            padding: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .produto .preco {
+            font-size: 18px;
+            color: #f26b38;
             font-weight: bold;
         }
 
-        .btn-pedido {
-            display: block;
-            width: 100%;
-            padding: 10px;
+        .produto button {
             background-color: #f26b38;
             color: white;
-            text-align: center;
-            font-size: 18px;
+            padding: 10px;
             border: none;
-            margin-top: 20px;
             cursor: pointer;
-            border-radius: 5px;
+            width: 100%;
+            font-size: 18px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
         }
 
-        .contato {
-            background-color: #222;
+        .produto button:hover {
+            background-color: #d85f2d;
+        }
+
+        /* Carrinho */
+        .carrinho {
+            position: fixed;
+            top: 10%;
+            right: 10px;
+            background-color: #333;
             color: white;
-            text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
+        .carrinho h4 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .carrinho p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .carrinho button {
+            background-color: #f26b38;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .carrinho button:hover {
+            background-color: #d85f2d;
+        }
+
+        /* Rodapé */
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -102,134 +161,85 @@
 
     <div class="container">
         <section class="cardapio">
-            <div class="categoria">
-                <h3>Cervejas</h3>
-                <div class="produto">
-                    <span>Brahma (lata 350ml)</span>
-                    <span>R$ 4,99</span>
-                </div>
-                <div class="produto">
-                    <span>Skol (lata 350ml)</span>
-                    <span>R$ 4,50</span>
-                </div>
-                <div class="produto">
-                    <span>Heineken (long neck 330ml)</span>
-                    <span>R$ 8,99</span>
-                </div>
-                <div class="produto">
-                    <span>Stella Artois (long neck 330ml)</span>
-                    <span>R$ 9,99</span>
-                </div>
-                <div class="produto">
-                    <span>Original (lata 350ml)</span>
-                    <span>R$ 5,50</span>
-                </div>
+            <!-- Produto 1 - Brahma -->
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Brahma" alt="Brahma">
+                <h3>Brahma (Lata 350ml)</h3>
+                <p>Cerveja Pilsen, refrescante e de sabor leve. Perfeita para acompanhar uma boa conversa com amigos.</p>
+                <p class="preco">R$ 4,99</p>
+                <button onclick="adicionarCarrinho('Brahma', 4.99)">Adicionar ao Carrinho</button>
             </div>
 
-            <div class="categoria">
-                <h3>Refrigerantes</h3>
-                <div class="produto">
-                    <span>Coca-Cola (lata 350ml)</span>
-                    <span>R$ 5,00</span>
-                </div>
-                <div class="produto">
-                    <span>Guaraná Antártica (lata 350ml)</span>
-                    <span>R$ 4,50</span>
-                </div>
-                <div class="produto">
-                    <span>Fanta Laranja (lata 350ml)</span>
-                    <span>R$ 4,50</span>
-                </div>
-                <div class="produto">
-                    <span>Pepsi (lata 350ml)</span>
-                    <span>R$ 5,00</span>
-                </div>
-                <div class="produto">
-                    <span>Sprite (lata 350ml)</span>
-                    <span>R$ 4,50</span>
-                </div>
+            <!-- Produto 2 - Skol -->
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Skol" alt="Skol">
+                <h3>Skol (Lata 350ml)</h3>
+                <p>Cerveja de sabor leve, ideal para o calor e um momento de lazer.</p>
+                <p class="preco">R$ 4,50</p>
+                <button onclick="adicionarCarrinho('Skol', 4.50)">Adicionar ao Carrinho</button>
             </div>
 
-            <div class="categoria">
-                <h3>Sucos Naturais</h3>
-                <div class="produto">
-                    <span>Suco de Laranja (500ml)</span>
-                    <span>R$ 6,00</span>
-                </div>
-                <div class="produto">
-                    <span>Suco de Uva (500ml)</span>
-                    <span>R$ 6,50</span>
-                </div>
-                <div class="produto">
-                    <span>Suco de Abacaxi (500ml)</span>
-                    <span>R$ 6,00</span>
-                </div>
-                <div class="produto">
-                    <span>Suco de Limão (500ml)</span>
-                    <span>R$ 5,50</span>
-                </div>
+            <!-- Produto 3 - Heineken -->
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Heineken" alt="Heineken">
+                <h3>Heineken (Long Neck 330ml)</h3>
+                <p>Cerveja Premium, com um sabor mais encorpado e uma experiência única.</p>
+                <p class="preco">R$ 8,99</p>
+                <button onclick="adicionarCarrinho('Heineken', 8.99)">Adicionar ao Carrinho</button>
             </div>
 
-            <div class="categoria">
-                <h3>Drinks</h3>
-                <div class="produto">
-                    <span>Caipirinha (350ml)</span>
-                    <span>R$ 12,00</span>
-                </div>
-                <div class="produto">
-                    <span>Mojito (350ml)</span>
-                    <span>R$ 15,00</span>
-                </div>
-                <div class="produto">
-                    <span>Margarita (350ml)</span>
-                    <span>R$ 18,00</span>
-                </div>
-                <div class="produto">
-                    <span>Cuba Libre (350ml)</span>
-                    <span>R$ 14,00</span>
-                </div>
+            <!-- Produto 4 - Suco de Laranja -->
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Suco+de+Laranja" alt="Suco de Laranja">
+                <h3>Suco de Laranja (500ml)</h3>
+                <p>Suco natural, rico em vitamina C e sabor refrescante para qualquer hora.</p>
+                <p class="preco">R$ 6,00</p>
+                <button onclick="adicionarCarrinho('Suco de Laranja', 6.00)">Adicionar ao Carrinho</button>
             </div>
 
-            <div class="categoria">
-                <h3>Outros</h3>
-                <div class="produto">
-                    <span>Energético (Red Bull 250ml)</span>
-                    <span>R$ 10,00</span>
-                </div>
-                <div class="produto">
-                    <span>Energético (Monster 500ml)</span>
-                    <span>R$ 12,00</span>
-                </div>
-                <div class="produto">
-                    <span>Cachaça 51 (garrafa 700ml)</span>
-                    <span>R$ 30,00</span>
-                </div>
-                <div class="produto">
-                    <span>Vodka Smirnoff (garrafa 700ml)</span>
-                    <span>R$ 45,00</span>
-                </div>
-                <div class="produto">
-                    <span>Gin Beefeater (garrafa 700ml)</span>
-                    <span>R$ 85,00</span>
-                </div>
+            <!-- Produto 5 - Vodka -->
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Vodka+Smirnoff" alt="Vodka Smirnoff">
+                <h3>Vodka Smirnoff (Garrafa 700ml)</h3>
+                <p>Vodka premium com sabor suave e ideal para drinks e coquetéis.</p>
+                <p class="preco">R$ 45,00</p>
+                <button onclick="adicionarCarrinho('Vodka Smirnoff', 45.00)">Adicionar ao Carrinho</button>
             </div>
         </section>
-
-        <button class="btn-pedido">Fazer Pedido</button>
     </div>
 
-    <div class="contato">
-        <p>Pedidos e Informações</p>
-        <p>WhatsApp: (44) 99123-4567</p>
-        <p>Telefone: (44) 3020-4050</p>
-        <p>Endereço: Rua Santa Catarina, 450, Maringá - PR</p>
-        <p>Próximo ao Colégio CCM Vinícius de Morais</p>
+    <!-- Carrinho -->
+    <div class="carrinho">
+        <h4>Carrinho</h4>
+        <p id="carrinho-info">Nenhum item no carrinho.</p>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
     </div>
 
     <footer>
         <p>&copy; 2025 Bebida Já - Todos os direitos reservados</p>
     </footer>
 
-</body>
+    <script>
+        let carrinho = [];
 
-</html>
+        // Função para adicionar produtos ao carrinho
+        function adicionarCarrinho(nome, preco) {
+            carrinho.push({ nome: nome, preco: preco });
+            atualizarCarrinho();
+        }
+
+        // Função para atualizar a exibição do carrinho
+        function atualizarCarrinho() {
+            const carrinhoInfo = document.getElementById('carrinho-info');
+            if (carrinho.length === 0) {
+                carrinhoInfo.textContent = 'Nenhum item no carrinho.';
+            } else {
+                const total = carrinho.reduce((total, item) => total + item.preco, 0).toFixed(2);
+                carrinhoInfo.innerHTML = `Itens no carrinho: ${carrinho.length} | Total: R$ ${total}`;
+            }
+        }
+
+        // Função para finalizar a compra
+        function finalizarCompra() {
+            if
+```
