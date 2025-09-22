@@ -1,0 +1,149 @@
+/* Resetando margens e preenchimentos padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #f26b38;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Container para todo o conteúdo principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Grid do cardápio */
+.cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Categoria do cardápio */
+.categoria {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Título de cada categoria */
+.categoria h3 {
+    text-align: center;
+    color: #f26b38;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Estilo para cada produto listado */
+.produto {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.produto span {
+    font-weight: bold;
+}
+
+/* Botão de pedido */
+.btn-pedido {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f26b38;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pedido:hover {
+    background-color: #d85f2d;
+}
+
+/* Estilos para a seção de contato */
+.contato {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.contato p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Estilo responsivo para telas pequenas */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .cardapio {
+        grid-template-columns: 1fr;
+    }
+
+    .categoria h3 {
+        font-size: 20px;
+    }
+
+    .produto {
+        font-size: 14px;
+    }
+
+    .btn-pedido {
+        font-size: 16px;
+    }
+
+    .contato p {
+        font-size: 14px;
+    }
+}
