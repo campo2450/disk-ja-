@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebida Já - Maringá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #f26b38;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .cardapio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .categoria {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .categoria h3 {
+            text-align: center;
+            color: #f26b38;
+        }
+
+        .produto {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .produto span {
+            font-weight: bold;
+        }
+
+        .btn-pedido {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f26b38;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contato {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bebida Já - Maringá</h1>
+        <p>Seu Delivery de Bebidas em Maringá!</p>
+    </header>
+
+    <div class="container">
+        <section class="cardapio">
+            <div class="categoria">
+                <h3>Cervejas</h3>
+                <div class="produto">
+                    <span>Brahma (lata 350ml)</span>
+                    <span>R$ 4,99</span>
+                </div>
+                <div class="produto">
+                    <span>Skol (lata 350ml)</span>
+                    <span>R$ 4,50</span>
+                </div>
+                <div class="produto">
+                    <span>Heineken (long neck 330ml)</span>
+                    <span>R$ 8,99</span>
+                </div>
+                <div class="produto">
+                    <span>Stella Artois (long neck 330ml)</span>
+                    <span>R$ 9,99</span>
+                </div>
+                <div class="produto">
+                    <span>Original (lata 350ml)</span>
+                    <span>R$ 5,50</span>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <h3>Refrigerantes</h3>
+                <div class="produto">
+                    <span>Coca-Cola (lata 350ml)</span>
+                    <span>R$ 5,00</span>
+                </div>
+                <div class="produto">
+                    <span>Guaraná Antártica (lata 350ml)</span>
+                    <span>R$ 4,50</span>
+                </div>
+                <div class="produto">
+                    <span>Fanta Laranja (lata 350ml)</span>
+                    <span>R$ 4,50</span>
+                </div>
+                <div class="produto">
+                    <span>Pepsi (lata 350ml)</span>
+                    <span>R$ 5,00</span>
+                </div>
+                <div class="produto">
+                    <span>Sprite (lata 350ml)</span>
+                    <span>R$ 4,50</span>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <h3>Sucos Naturais</h3>
+                <div class="produto">
+                    <span>Suco de Laranja (500ml)</span>
+                    <span>R$ 6,00</span>
+                </div>
+                <div class="produto">
+                    <span>Suco de Uva (500ml)</span>
+                    <span>R$ 6,50</span>
+                </div>
+                <div class="produto">
+                    <span>Suco de Abacaxi (500ml)</span>
+                    <span>R$ 6,00</span>
+                </div>
+                <div class="produto">
+                    <span>Suco de Limão (500ml)</span>
+                    <span>R$ 5,50</span>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <h3>Drinks</h3>
+                <div class="produto">
+                    <span>Caipirinha (350ml)</span>
+                    <span>R$ 12,00</span>
+                </div>
+                <div class="produto">
+                    <span>Mojito (350ml)</span>
+                    <span>R$ 15,00</span>
+                </div>
+                <div class="produto">
+                    <span>Margarita (350ml)</span>
+                    <span>R$ 18,00</span>
+                </div>
+                <div class="produto">
+                    <span>Cuba Libre (350ml)</span>
+                    <span>R$ 14,00</span>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <h3>Outros</h3>
+                <div class="produto">
+                    <span>Energético (Red Bull 250ml)</span>
+                    <span>R$ 10,00</span>
+                </div>
+                <div class="produto">
+                    <span>Energético (Monster 500ml)</span>
+                    <span>R$ 12,00</span>
+                </div>
+                <div class="produto">
+                    <span>Cachaça 51 (garrafa 700ml)</span>
+                    <span>R$ 30,00</span>
+                </div>
+                <div class="produto">
+                    <span>Vodka Smirnoff (garrafa 700ml)</span>
+                    <span>R$ 45,00</span>
+                </div>
+                <div class="produto">
+                    <span>Gin Beefeater (garrafa 700ml)</span>
+                    <span>R$ 85,00</span>
+                </div>
+            </div>
+        </section>
+
+        <button class="btn-pedido">Fazer Pedido</button>
+    </div>
+
+    <div class="contato">
+        <p>Pedidos e Informações</p>
+        <p>WhatsApp: (44) 99123-4567</p>
+        <p>Telefone: (44) 3020-4050</p>
+        <p>Endereço: Rua Santa Catarina, 450, Maringá - PR</p>
+        <p>Próximo ao Colégio CCM Vinícius de Morais</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bebida Já - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+
+</html>
