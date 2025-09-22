@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bebida Já - Maringá</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Reset de margens e preenchimentos padrão */
         * {
             margin: 0;
             padding: 0;
@@ -16,65 +13,94 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         header {
-            background-color: #f26b38;
-            color: white;
-            text-align: center;
+            background-color: #2e2e2e;
+            color: #fff;
             padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 36px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f26b38;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
         }
 
         .container {
             width: 90%;
-            margin: 20px auto;
+            margin: 40px auto;
         }
 
         .cardapio {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
         .produto {
-            background-color: white;
+            background-color: #fff;
             border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s;
         }
 
         .produto img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .produto:hover img {
+            transform: scale(1.05);
         }
 
         .produto h3 {
             background-color: #f26b38;
-            color: white;
-            padding: 10px 0;
+            color: #fff;
+            padding: 10px;
             margin: 0;
-            font-size: 20px;
+            font-size: 1.5rem;
         }
 
         .produto p {
-            padding: 10px;
-            font-size: 16px;
-            color: #555;
+            padding: 15px;
+            font-size: 1rem;
+            color: #777;
         }
 
         .produto .preco {
-            font-size: 18px;
+            font-size: 1.3rem;
             color: #f26b38;
             font-weight: bold;
         }
@@ -82,61 +108,60 @@
         .produto button {
             background-color: #f26b38;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border: none;
             cursor: pointer;
             width: 100%;
-            font-size: 18px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
         }
 
         .produto button:hover {
-            background-color: #d85f2d;
+            background-color: #ff6f3b;
         }
 
         /* Carrinho */
         .carrinho {
             position: fixed;
-            top: 10%;
-            right: 10px;
-            background-color: #333;
-            color: white;
+            bottom: 30px;
+            right: 30px;
+            background-color: #2e2e2e;
+            color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .carrinho h4 {
-            margin: 0;
-            font-size: 20px;
+            width: 250px;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .carrinho p {
-            font-size: 16px;
-            margin: 5px 0;
+            margin: 10px 0;
+            font-size: 1rem;
         }
 
         .carrinho button {
             background-color: #f26b38;
-            color: white;
+            color: #fff;
+            padding: 15px;
             border: none;
-            padding: 10px;
-            cursor: pointer;
             width: 100%;
-            font-size: 18px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .carrinho button:hover {
-            background-color: #d85f2d;
+            background-color: #ff6f3b;
         }
 
-        /* Rodapé */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #2e2e2e;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            padding: 10px;
             margin-top: 40px;
         }
     </style>
@@ -146,14 +171,21 @@
 
     <header>
         <h1>Bebida Já - Maringá</h1>
-        <p>Seu Delivery de Bebidas em Maringá!</p>
+        <p>Entrega rápida e segura de bebidas em Maringá</p>
     </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Cardápio</a>
+        <a href="#">Promoções</a>
+        <a href="#">Sobre</a>
+    </nav>
 
     <div class="container">
         <section class="cardapio">
             <!-- Produto 1 - Brahma -->
             <div class="produto">
-                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Brahma" alt="Brahma">
+                <img src="https://via.placeholder.com/400x250/FF7F50/ffffff?text=Brahma" alt="Brahma">
                 <h3>Brahma (Lata 350ml)</h3>
                 <p>Cerveja Pilsen, refrescante e de sabor leve. Perfeita para acompanhar uma boa conversa com amigos.</p>
                 <p class="preco">R$ 4,99</p>
@@ -162,7 +194,7 @@
 
             <!-- Produto 2 - Skol -->
             <div class="produto">
-                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Skol" alt="Skol">
+                <img src="https://via.placeholder.com/400x250/FF7F50/ffffff?text=Skol" alt="Skol">
                 <h3>Skol (Lata 350ml)</h3>
                 <p>Cerveja de sabor leve, ideal para o calor e um momento de lazer.</p>
                 <p class="preco">R$ 4,50</p>
@@ -171,7 +203,7 @@
 
             <!-- Produto 3 - Heineken -->
             <div class="produto">
-                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Heineken" alt="Heineken">
+                <img src="https://via.placeholder.com/400x250/FF7F50/ffffff?text=Heineken" alt="Heineken">
                 <h3>Heineken (Long Neck 330ml)</h3>
                 <p>Cerveja Premium, com um sabor mais encorpado e uma experiência única.</p>
                 <p class="preco">R$ 8,99</p>
@@ -180,27 +212,17 @@
 
             <!-- Produto 4 - Suco de Laranja -->
             <div class="produto">
-                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Suco+de+Laranja" alt="Suco de Laranja">
+                <img src="https://via.placeholder.com/400x250/FF7F50/ffffff?text=Suco+de+Laranja" alt="Suco de Laranja">
                 <h3>Suco de Laranja (500ml)</h3>
                 <p>Suco natural, rico em vitamina C e sabor refrescante para qualquer hora.</p>
                 <p class="preco">R$ 6,00</p>
                 <button onclick="adicionarCarrinho('Suco de Laranja', 6.00)">Adicionar ao Carrinho</button>
-            </div>
-
-            <!-- Produto 5 - Vodka -->
-            <div class="produto">
-                <img src="https://via.placeholder.com/300x200/FF7F50/ffffff?text=Vodka+Smirnoff" alt="Vodka Smirnoff">
-                <h3>Vodka Smirnoff (Garrafa 700ml)</h3>
-                <p>Vodka premium com sabor suave e ideal para drinks e coquetéis.</p>
-                <p class="preco">R$ 45,00</p>
-                <button onclick="adicionarCarrinho('Vodka Smirnoff', 45.00)">Adicionar ao Carrinho</button>
             </div>
         </section>
     </div>
 
     <!-- Carrinho -->
     <div class="carrinho">
-        <h4>Carrinho</h4>
         <p id="carrinho-info">Nenhum item no carrinho.</p>
         <button onclick="finalizarCompra()">Finalizar Compra</button>
     </div>
@@ -231,5 +253,14 @@
 
         // Função para finalizar a compra
         function finalizarCompra() {
-            if
-```
+            if (carrinho.length > 0) {
+
+
+Perguntar ao ChatGPT
+
+Continuar gerando
+
+
+Anexar
+
+Bus
